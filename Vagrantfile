@@ -15,15 +15,17 @@ mysql_settings = {
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-	config.vm.box = "ct3k_database"
-	config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-	config.vm.network :private_network, ip: "192.168.33.33"
-	#config.vm.network :hostonly, "192.168.33.33"
-	#config.vm.network :forwarded_port, host: 3306, guest: 3306
-	#config.vm.network :forwarded_port, host: 4567, guest: 80
-	
-	config.vm.provision :chef_solo do |chef|
-		chef.json = mysql_settings
-		chef.add_recipe "ct3k::ct3k_database"
+	config.vm.define :ct3k_database do |ct3k_database|
+		ct3k_database.vm.box = "ct3k_database"
+		ct3k_database.vm.box_url = "http://files.vagrantup.com/precise32.box"
+		ct3k_database.vm.network :private_network, ip: "192.168.33.33"
+		#ct3k_database.vm.network :hostonly, "192.168.33.33"
+		#ct3k_database.vm.network :forwarded_port, host: 3306, guest: 3306
+		#ct3k_database.vm.network :forwarded_port, host: 4567, guest: 80
+		
+		ct3k_database.vm.provision :chef_solo do |chef|
+			chef.json = mysql_settings
+			chef.add_recipe "ct3k::ct3k_database"
+		end
 	end
 end

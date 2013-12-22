@@ -1,7 +1,7 @@
 include_recipe "mysql::server"
 include_recipe "database::mysql"
 
-sql_info_hash = {:host => 'localhost',
+sql_info_hash = {:host => "localhost",
                 :username => 'root',
                 :password => node['mysql']['server_root_password']
 }
