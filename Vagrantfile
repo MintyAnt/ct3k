@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 mysql_settings = {
   :mysql => {
-    :bind_address => "192.168.33.33",
+    :bind_address => "192.168.22.22",
     :server_root_password =>"pwd",
     :server_debian_password =>"pwd",
     :server_repl_password =>"pwd",
@@ -17,7 +17,7 @@ mysql_settings = {
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "ct3k_database"
 	config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-	config.vm.network :private_network, ip: "192.168.33.33"
+	config.vm.network :private_network, ip: "192.168.22.22"
 	#config.vm.network :hostonly, "192.168.33.33"
 	#config.vm.network :forwarded_port, host: 3306, guest: 3306
 	#config.vm.network :forwarded_port, host: 4567, guest: 80
