@@ -18,9 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.define :ct3k_database do |ct3k_database|
 		ct3k_database.vm.box = "ct3k_database"
 		ct3k_database.vm.box_url = "http://files.vagrantup.com/precise32.box"
-		ct3k_database.vm.network :private_network, ip: "192.168.33.33"
+		ct3k_database.vm.network :private_network, ip: "192.168.22.22"
+		ct3k_database.vm.network "forwarded_port", guest: 80, host: 3333
 		#ct3k_database.vm.network :hostonly, "192.168.33.33"
-		#ct3k_database.vm.network :forwarded_port, host: 3306, guest: 3306
+		#\ct3k_database.vm.network :forwarded_port, host: 3306, guest: 3306
 		#ct3k_database.vm.network :forwarded_port, host: 4567, guest: 80
 		
 		ct3k_database.vm.provision :chef_solo do |chef|

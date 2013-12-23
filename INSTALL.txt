@@ -1,0 +1,16 @@
+1. Get all the git stuffs
+- You already git cloned
+- git submodule init
+- git submodule update
+
+2. Download things
+- Vagrant - http://www.vagrantup.com/
+- VirtualBox - https://www.virtualbox.org/
+- MYSQL Workbench - http://www.mysql.com/products/workbench/
+
+3. Start vagrant
+- open cmd prompt or whatever
+- vagrant up
+
+4. Python setup
+TODO
